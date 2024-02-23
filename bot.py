@@ -127,8 +127,6 @@ def main():
     bluesky_password = os.getenv("BLUESKY_PASSWORD")
     debug = os.getenv("DEBUG").lower() == "true"
 
-    print(f"API_KEY: {api_key}")
-    print(f"DEBUG: {debug}")
     # Get word of the day from merriam webster
     if debug:
         word_of_the_day = "rapport"
@@ -159,6 +157,20 @@ def main():
         post = client.post(post_text)
         rprint(session)
         rprint(post)
+
+
+def lambda_handler(event, context) -> dict[str, Any]:
+    """Main entry point for AWS Lambda function
+
+    Args:
+        event: Contains info about service invoking function
+        context: Contains methods + properties about invocation/runtime/function
+
+    Returns:
+        dict[str, Any]: Dictionary containing lambda invocation response info
+    """
+    main()
+    return {"statusCode": 200, "body": json.dumps("Done!")}
 
 
 if __name__ == "__main__":
