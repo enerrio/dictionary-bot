@@ -84,12 +84,14 @@ def parse_webster_api(api_reponse: dict[str, Any]) -> dict[str, str]:
     # Get definition of word
     # definitions = webster_api_content["shortdef"]
     # definition_text = "\n".join([f"{i+1}) {x}" for i, x in enumerate(definitions)])
-    definition_text = webster_api_content["def"][0]["sseq"][0][0][1]["dt"][0][1]
+    definition_text_dt = webster_api_content["def"][0]["sseq"][0]
+    definition_text_dt = [sseq for sseq in definition_text_dt if sseq[0] == "sense"][0]
+    definition_text = definition_text_dt[1]["dt"][0][1]
     # for links, extract 2nd field
     definition_text = re.sub(
         r"{(a|d|i|et)_link\|([a-z]*)[\|a-z\s\_\/]*}", r"\g<2>", definition_text
     )
-    definition_text = re.sub(r"{[a-z\_\|\/]*}", "", definition_text)
+    definition_text = re.sub(r"{[a-z\_\|\/0-9:]*}", "", definition_text)
     post_content["definitions"] = definition_text
 
     # Choose random quote
