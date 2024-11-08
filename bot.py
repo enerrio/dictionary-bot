@@ -89,9 +89,9 @@ def parse_webster_api(api_reponse: dict[str, Any]) -> dict[str, str]:
     definition_text = definition_text_dt[1]["dt"][0][1]
     # for links, extract 2nd field
     definition_text = re.sub(
-        r"{(a|d|i|et)_link\|([a-z]*)[\|a-z\s\_\/]*}", r"\g<2>", definition_text
+        r"{[a-z_]+\|([^\|}]+)(?:\|[^\|}]*)*}", r"\1", definition_text
     )
-    definition_text = re.sub(r"{[a-z\_\|\/0-9:]*}", "", definition_text)
+    definition_text = re.sub(r"{[^\}]*}", "", definition_text)
     post_content["definitions"] = definition_text
 
     # Choose random quote
