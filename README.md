@@ -13,7 +13,7 @@ That word is then looked up through Merriam-Webster's [Collegiate API](https://d
 * Pronunciation (only the pronunciation that has an audio file)
 * Definition
 
-Finally the [Bluesky API](https://www.docs.bsky.app/docs/get-started) is used to log in to the bot's account and post. A post looks like this:
+Finally the [Bluesky API](https://docs.bsky.app) is used to log in to the bot's account and post. A post looks like this:
 
 ```
 🌟 Word of the day: pedagogical
@@ -94,4 +94,4 @@ Log files are written to the `logs/` directory as daily files named like `dictio
 
 ## Previous AWS Deployment
 
-The bot used to run as a Lambda function on Python 3.11 / arm64, triggered by an EventBridge rule once a day at 9am PT. Dependencies were installed with `--platform manylinux2014_aarch64` into a `package/` directory, zipped together with the Python sources, and uploaded to the Lambda function. That path has been replaced by the `launchd` setup above, so the EventBridge rule should be disabled to avoid double posting.
+The bot used to run as a Lambda function on Python 3.11 / arm64, triggered by an EventBridge rule once a day at 9am PT. Dependencies were installed with `--platform manylinux2014_aarch64` into a `package/` directory, zipped together with the Python sources, and uploaded to the Lambda function. That path has been replaced by the `launchd` setup above, and the EventBridge rule has been disabled.
