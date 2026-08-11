@@ -38,10 +38,10 @@ def run() -> bool:
 
     logger.info("Fetching word of the day")
     try:
-        word = get_word_of_the_day()
-        logger.info("Word of the day: %s", word)
+        word, part_of_speech, gloss = get_word_of_the_day()
+        logger.info("Word of the day: %s (%s)", word, part_of_speech or "unknown")
         api_response = get_word_details(word, API_KEY)
-        word_content = parse_word_details(api_response)
+        word_content = parse_word_details(api_response, word, part_of_speech, gloss)
     except WordDataError as err:
         logger.error("Unable to fetch word of the day: %s", err)
         return False

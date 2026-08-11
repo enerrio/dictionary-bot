@@ -13,6 +13,8 @@ That word is then looked up through Merriam-Webster's [Collegiate API](https://d
 * Pronunciation (only the pronunciation that has an audio file)
 * Definition
 
+The API returns one entry per homograph, along with inflections and phrases that merely contain the word, so the entries are filtered down to the one the word of the day refers to. The feed item carries two hints used for that: the part of speech, and the short plain-English gloss the dictionary's editors write. Where homographs share a part of speech — both senses of `dudgeon` are nouns — the gloss decides, since its wording follows the sense being featured.
+
 Finally the [Bluesky API](https://docs.bsky.app) is used to log in to the bot's account and post. A post looks like this:
 
 ```

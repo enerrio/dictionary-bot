@@ -1,5 +1,5 @@
 from bot import post
-from bot.fetch_data import WordDataError
+from bot.fetch_data import WordDataError, WordOfTheDay
 
 
 def _fail(message):
@@ -7,7 +7,11 @@ def _fail(message):
 
 
 def _stub_fetch(monkeypatch, api_response):
-    monkeypatch.setattr(post, "get_word_of_the_day", lambda: "rapport")
+    monkeypatch.setattr(
+        post,
+        "get_word_of_the_day",
+        lambda: WordOfTheDay("rapport", "noun", "a friendly relationship"),
+    )
     monkeypatch.setattr(post, "get_word_details", lambda word, key: api_response)
 
 
