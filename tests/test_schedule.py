@@ -12,7 +12,7 @@ class DummyInstant:
             def to_tz(self, tz):
                 return self
 
-            def py_datetime(self):
+            def to_stdlib(self):
                 return datetime.datetime(2026, 8, 10, 9, 0)
 
         return DummyTZ()

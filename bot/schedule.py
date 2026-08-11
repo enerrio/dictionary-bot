@@ -18,7 +18,7 @@ def today_in_timezone(timezone: str = POST_TIMEZONE) -> date:
     Returns:
         date: Today's date in that timezone.
     """
-    return Instant.now().to_tz(timezone).py_datetime().date()
+    return Instant.now().to_tz(timezone).to_stdlib().date()
 
 
 def already_posted_today(state_file: Path = STATE_FILE) -> bool:
