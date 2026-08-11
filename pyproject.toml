@@ -1,0 +1,38 @@
+[project]
+name = "dictionary-bot"
+version = "0.1.0"
+description = "Bluesky bot that posts Merriam-Webster's word of the day"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "atproto>=0.0.59",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.0",
+    "whenever>=0.7.3",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=9.1.0",
+    "pre-commit>=4.2.0",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.1.1",
+    "ruff>=0.11.4",
+]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I"
+]
+ignore = ["E501"]

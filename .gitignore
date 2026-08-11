@@ -1,5 +1,22 @@
-.env
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Misc
+.env*
+!.env.example
+.coverage
 *.ipynb
-*.json
-__pycache__
-package
+*.zip
+packages
+requirements.txt
+package*
+logs/*.log
+state/

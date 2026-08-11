@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.enerrio.dictionary-bot</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/enerrio/projects/dictionary-bot/scripts/run_scheduled_bot.sh</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/enerrio/projects/dictionary-bot</string>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>9</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+</dict>
+</plist>
