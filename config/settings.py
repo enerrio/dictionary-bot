@@ -22,3 +22,11 @@ POST_TIMEZONE = "America/Los_Angeles"
 
 # Records the last day the bot posted so a replayed launchd job cannot double post
 STATE_FILE = REPO_ROOT / "state" / "last_posted_date"
+
+# atproto's HTTP client defaults to a 5 second timeout, short enough that a slow
+# morning network costs the whole day's post
+BLUESKY_REQUEST_TIMEOUT = 30.0
+
+# Network failures against Bluesky are usually transient, so retry with backoff
+BLUESKY_MAX_ATTEMPTS = 3
+BLUESKY_RETRY_BACKOFF = 2.0

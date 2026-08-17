@@ -21,4 +21,4 @@ if [[ ! -x "$PYTHON_BIN" ]]; then
   exit 127
 fi
 
-exec "$PYTHON_BIN" scripts/run_bot.py --timeout-seconds 60
+exec "$PYTHON_BIN" scripts/run_bot.py --timeout-seconds 180

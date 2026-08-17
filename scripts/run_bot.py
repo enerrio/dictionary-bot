@@ -44,6 +44,8 @@ if __name__ == "__main__":
         level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
     )
     parser = argparse.ArgumentParser(description="Run the dictionary bot.")
-    parser.add_argument("--timeout-seconds", type=int, default=60)
+    # Must outlast the Bluesky retries in bot.client, or the alarm fires first
+    # and cancels a run that was about to succeed
+    parser.add_argument("--timeout-seconds", type=int, default=180)
     args = parser.parse_args()
     raise SystemExit(0 if run_bot_with_timeout(args.timeout_seconds) else 1)
